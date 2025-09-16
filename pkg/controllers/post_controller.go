@@ -9,7 +9,6 @@ import (
 	"github.com/gin-gonic/gin"
 )
 
-// Create a new post
 func CreatePost(c *gin.Context) {
 	var post models.Post
 	if err := c.ShouldBindJSON(&post); err != nil {
@@ -26,14 +25,12 @@ func CreatePost(c *gin.Context) {
 	c.JSON(http.StatusCreated, post)
 }
 
-// Get all posts
 func GetPosts(c *gin.Context) {
 	var posts []models.Post
 	utils.DB.Find(&posts)
 	c.JSON(http.StatusOK, posts)
 }
 
-// Get a single post by ID
 func GetPost(c *gin.Context) {
 	id := c.Param("id")
 	var post models.Post
@@ -46,7 +43,6 @@ func GetPost(c *gin.Context) {
 	c.JSON(http.StatusOK, post)
 }
 
-// Update a post
 func UpdatePost(c *gin.Context) {
 	id := c.Param("id")
 	var post models.Post
@@ -69,7 +65,6 @@ func UpdatePost(c *gin.Context) {
 	c.JSON(http.StatusOK, post)
 }
 
-// Delete a post
 func DeletePost(c *gin.Context) {
 	id := c.Param("id")
 	var post models.Post

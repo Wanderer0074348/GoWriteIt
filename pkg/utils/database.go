@@ -11,7 +11,7 @@ import (
 var DB *gorm.DB
 
 func ConnectDatabase() {
-	database, err := gorm.Open(sqlite.Open("file:blog.db?cache=shared&_fk=1"), &gorm.Config{})
+	database, err := gorm.Open(sqlite.Open("file:storage/blog.db?cache=shared&_fk=1"), &gorm.Config{})
 	if err != nil {
 		log.Fatal("Failed to connect to database: ", err)
 	}
